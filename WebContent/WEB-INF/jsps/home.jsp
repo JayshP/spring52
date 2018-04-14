@@ -16,15 +16,12 @@ Request <%= request.getAttribute("name") %> <p/>
 
 Request (using EL): ${name } <p/>
 
-<c:out value="${name }"></c:out> <p/>
 
-<sql:query var="rs" dataSource="jdbc/spring">
-select * from login
-</sql:query>
-
-<c:forEach var="row" items="${rs.rows}">
-    ID: ${row.E_ID}<br/>
+<c:forEach var="row" items="${login}">
+    ID: ${row.E_ID}<br/> 
     NAME: ${row.E_name}<br/>
+    type: ${row.E_type}<br/>
+    password: ${row.E_password}<br/>
 </c:forEach>
 
 </body>
