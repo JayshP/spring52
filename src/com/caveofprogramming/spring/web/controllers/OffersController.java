@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -19,18 +20,7 @@ import com.caveofprogramming.spring.web.service.loginService;
 
 @Controller
 public class OffersController {
-	/*
-	@RequestMapping("/")
-	public ModelAndView showHome()
-	{
-		ModelAndView mv = new ModelAndView("home");
-		Map<String, Object> model = mv.getModel();
-		
-		model.put("name", "River");
-		
-		return mv;
-	}
-*/
+	
 
 	private loginService loginservice;
 	
@@ -42,13 +32,27 @@ public class OffersController {
 
 
 
-	@RequestMapping("/")
+	@RequestMapping("/logindet")
 	public String showHome(Model model)
 	{
 		List<login> login = loginservice.getCurrent();
 		
 			model.addAttribute("login",login);
-		return "home";
+		return "logindet";
+	}
+	
+	@RequestMapping("/createlogin")
+	public String createlogin()
+	{
+		
+		return "createlogin";
+	}
+	
+	@RequestMapping(value="/loginentry",method=RequestMethod.POST)
+	public String loginentry(Model model,login login)
+	{
+		System.out.println(login);
+		return "loginentry";
 	}
 	
 }

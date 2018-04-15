@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.formtable{
+	width:400px;
+	width:10px;
+	border: 1px solid blue;
+}
+
+input[type=text]{
+	width=250ps;
+}
+
+.label{
+	text-align:right;
+	vertical-align:to;
+}
+
+.control{
+	margin-left:10px;
+}
